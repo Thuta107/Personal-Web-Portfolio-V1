@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://kit.fontawesome.com/cb7fa0ede2.js" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+    <title> ThutaLin </title>
+    <meta name="author" content="Thuta Lin">
+</head>
+
+<body>
+
+    <!-- Nav Section -->
+    <div id="nav-container" class="head-font">
+        <div> <a href="#hero-container"> Home </a> </div>
+        <div> <a href="#about"> About </a> </div>
+        <div> <a href="#portfolio"> Portfolio </a> </div>
+        <div> <a href="#contact"> Contact </a> </div>
+    </div>
+
+    <!-- Social Section -->
+    <div id="social-container">
+        <div>
+            <a class="head-font" href="https://www.linkedin.com/in/thuta-lin/" target="_blank"> 
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div>
+            <a class="head-font" href="https://github.com/Thuta107" target="_blank"> 
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Social + Nav Section (for mobile and smaller screen size) -->
+    <span id="burger" onclick="menuOn(true)"> 
+        <i class="fas fa-bars"></i> 
+    </span>
+    <span id="burger-x" onclick="menuOn(false)"> 
+        <i class="fas fa-times"></i>
+    </span>
+    <div id="nav-socials" class="head-font">
+        <div class="nav-socials-items"> <a href="#hero-container" onclick="menuOn(false)"> Home </a> </div>
+        <div class="nav-socials-items"> <a href="#about" onclick="menuOn(false)"> About </a> </div>
+        <div class="nav-socials-items"> <a href="#portfolio" onclick="menuOn(false)"> Portfolio </a> </div>
+        <div class="nav-socials-items"> <a href="#contact" onclick="menuOn(false)"> Contact </a> </div>
+        <div class="nav-socials-s">
+            <div>
+                <a class="head-font" href="https://www.linkedin.com/in/thuta-lin/" target="_blank"> 
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div>
+                <a class="head-font" href="https://github.com/Thuta107" target="_blank"> 
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Main Section -->
+    <div id="main-container" class="text-font">
+
+        <!-- Hero Section -->
+        <section id="hero-container">
+            <div class="hero-intro"> 
+                <span> Hello&#128400;! I'm</span>
+                <span class="hero-highlight head-font">Thuta.</span>
+                <span></span>
+            </div>
+            <div class="hero-main"> Building Software Products for your Business Needs. </div>
+            <div class="hero-section"> 
+                <p style="line-height: 2;"> 
+                    <span class="hero-highlight head-font"> Passionate & Innovative Software Developer </span> 
+                    specialising in developing (mostly) and designing various applications and systems. I have experience 
+                    with <span class="hero-highlight head-font"> Web & Mobile Apps Development.</span> 
+                </p> 
+            </div>
+            <div class="btn-group">
+                <a href="#portfolio"> View My Work </a>
+                <a href="#contact"> Contact Me </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-container"> 
+            <div class="head-font myheader"> Wh&#129300;  Am I ? </div>
+            <div class="about-grid">
+                <div>
+                    <p class="about-bio">
+                        Hello! My name is <span class="hero-highlight head-font"> Thuta Lin. </span>
+                        My passion has always been creating and building things, not necessarily restricted
+                        to software development and programming. I discovered basic programming back in 2016 
+                        while I was studying overseas for my foundation studies with the aim of pursuing in 
+                        different engineering discipline. With the new-found love for programming, I made a 
+                        decision to pursue Software Engineering Undergraduate Program which I started in 2017. 
+                        <br><br>
+                        Fast-forward after 4 years of studies, I graduated a program and looking forward to 
+                        kick start my professional developer journey to help out and bring about a change to 
+                        various people and communities with the skill set that I have acquired. 
+                        <br><br>
+                        Check out my resume as well as my portfolio to know me better. Please do keep in touch
+                        if there is anything that I can help you out with.
+                    </p>
+                    <div id="resume" onclick="downloadCV()">
+                        <i class="fas fa-download"></i> DOWNLOAD RESUME
+                    </div>
+                    <p class="about-bio-bottom">
+                        Check out my favourite <span class="hero-highlight head-font">Skills & Tools</span> 
+                        <span class="head-font emo-animation"> &#128071; </span> to know me better.
+                    </p>
+                </div>
+                <div class="img-bio">
+                    <img style="width: 100%; height: 100%;" src="img/About.jpg">
+                </div>
+            </div>
+
+            <!-- Langeuage -->
+            <section style="margin-top: 15%;">
+                <div class="tools-header"> Languages & Frameworks </div>
+                <div class="items">
+                    <div class="item-exp"> HTML5 </div>
+                    <div class="item-exp"> CSS3 </div>
+                    <div class="item-exp"> JavaScript </div>
+                    <div class="item-exp"> Python </div>
+                    <div class="item-exp"> React </div>
+                    <div class="item-exp"> SQL </div>
+                    <div class="item-ok"> Node.js </div>
+                    <div class="item-ok"> Java </div>
+                    <div class="item-ok"> React Native </div>
+                    <div class="item-ok"> Express.js </div>
+                    <!-- <div class="item-train"> Django </div> -->
+                </div>
+                <div class="legends"> 
+                    <span class="exp"> I'm pretty good with it </span>
+                    <span class="ok"> I've experience with it </span>
+                    <!-- <span class="train"> I'm still learning it </span> -->
+                </div>
+            </section>
+
+            <!-- Tools -->
+            <section style="margin-top: 10%;">
+                <div class="tools-header"> Tools & Platforms </div>
+                <div class="items">
+                    <div class="item-exp"> OracleDB </div>
+                    <div class="item-exp"> MongoDB </div>
+                    <div class="item-exp"> Git (GitHub) </div>
+                    <div class="item-exp"> VSCode </div>
+                    <div class="item-ok"> Trello </div>
+                    <div class="item-ok"> AWS </div>
+                    <!-- <div class="item-train"> Firebase </div>
+                    <div class="item-train"> Figma </div> -->
+                </div>
+                <div class="legends">
+                    <span class="exp"> I'm pretty good with it </span>
+                    <span class="ok"> I've experience with it </span>
+                    <!-- <span class="train"> I'm still learning it </span> -->
+                </div>
+            </section>
+        </section>
+
+         <!-- Portfolio -->
+        <div id="portfolio" class="section-container"> 
+            <div class="head-font myheader"> My Portfolio </div>
+            <div class="proj-grid">
+                <div class="proj-main">
+                    <div class="head-font proj-header"> Project One </div>
+                    <div class="proj-desc"> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                        nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </div>
+                    <div class="proj-lang">
+                        <div> Android </div>
+                        <div> Java </div>
+                        <div> Kotlin </div>
+                    </div>
+                    <div class="proj-link">
+                        <a class="head-font link" href="#"> 
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                            <div class="link-text"> GitHub </div>
+                        </a>
+                        <a class="head-font link" href="#"> 
+                            <i class="fas fa-globe-asia"></i>
+                            <div class="link-text"> Website </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="proj-img">
+                    <img style="width: 100%; height: 100%;" src="img/Nature.jpg">
+                </div>
+            </div>
+
+            <div class="proj-grid">
+                <div class="proj-main">
+                    <div class="head-font proj-header"> Project One </div>
+                    <div class="proj-desc"> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                        nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </div>
+                    <div class="proj-lang">
+                        <div> Android </div>
+                        <div> Java </div>
+                        <div> Kotlin </div>
+                    </div>
+                    <div class="proj-link">
+                        <a class="head-font link" href="#"> 
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                            <div class="link-text"> GitHub </div>
+                        </a>
+                        <a class="head-font link" href="#"> 
+                            <i class="fas fa-globe-asia"></i>
+                            <div class="link-text"> Website </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="proj-img"> 
+                    <img style="width: 100%; height: 100%;" src="img/Nature.jpg">
+                </div>
+            </div>
+            <!-- <div class="mproj-container"> 
+                Want to see more? Check out my 
+                <span class="more-proj head-font hero-highlight"> Full Portfolio </span> 
+            </div> -->
+        </div>
+
+        <section id="contact" class="section-container">
+            <div class="head-font myheader"> Contact Me </div>
+            <!-- <form id="contact-form" action="/" method="POST" onsubmit="submitMsg()"> -->
+            <form id="contact-form">
+                <div id="contact-id" style="display: flex;">
+                    <div class="contact-container">
+                        <label for="fullname">* Name:</label><br>
+                        <input id="fullname" name="fullname" class="form-input text-font" type="text" required>
+                        <span id="err-name"> Error </span>
+                    </div>
+                    <div class="contact-container">
+                        <label for="email"> * Email:</label><br>
+                        <input id="email" name="email" class="form-input text-font" type="email" required>
+                        <span id="err-email"> Error </span>
+                    </div>
+                </div>
+                <div class="contact-container">
+                    <label for="subject">* Subject:</label><br>
+                    <input id="subject" name="subject" class="form-input text-font" type="text" required>
+                    <span id="err-subj"> Error </span>
+                </div>
+                <div class="contact-container">
+                    <label for="message">* Message:</label><br>
+                    <textarea id="message" name="message" class="form-input text-font" type="text" rows="8" required></textarea><br>
+                    <span id="err-msg"> Error </span>
+                </div>
+                <div class="contact-container">
+                    <input class="form-input" type="button" value="Send Message" onclick="submitMsg()">
+                </div>
+            </form>
+
+        </section>
+
+    </div>
+</body>
+
+</html>
