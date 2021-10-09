@@ -3,7 +3,6 @@ Hello! This is my first-ever version of my Software Developer Portfolio built us
 <br><br>
 
 ## **Tools & Languages**
----
 - **HTML**
 - **CSS**
 - **JavaScript (Vanilla)**
@@ -13,7 +12,6 @@ Hello! This is my first-ever version of my Software Developer Portfolio built us
 <br><br>
 
 ## **Credits**
----
 I would personally like to take my time to give credit to relevant authors/sites that give me inspiration during the process of building this personal portfolio.
 - **[Brittany Chiang](https://brittanychiang.com/)**
 - **[Jacek Jeznach](https://jacekjeznach.com/)**
@@ -22,7 +20,6 @@ I would personally like to take my time to give credit to relevant authors/sites
 <br><br>
 
 ## **Directory**
----
 **Use this link: [Personal-Web-Portfolio](https://thuta-web-portfolio.herokuapp.com/), to access my hosted personal web portfolio.**
 
 
