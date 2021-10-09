@@ -18,6 +18,7 @@ I would personally like to take my time to give credit to relevant authors/sites
 - **[Brittany Chiang](https://brittanychiang.com/)**
 - **[Jacek Jeznach](https://jacekjeznach.com/)**
 - **[Ben Adam](https://benadam.me/)**
+- **[Seb Kay](https://sebkay.com/)**
 <br><br>
 
 ## **Directory**
