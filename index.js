@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -19,25 +20,23 @@ app.post("/", (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'thutalin1727@gmail.com',
-            pass: 'Thutalinn1998'
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
         }
     });
       
     let mailOptions = {
         from: `${req.body.fullname} from ${req.body.email} <${req.body.email}>`,
-        to: 'thutalin1727@gmail.com',
+        to: process.env.EMAIL,
         subject: req.body.subject,
         text: req.body.message
     };
       
     transporter.sendMail(mailOptions, (error) => {
         if (error) {
-            // res.status(400).json({msg: "Sorry! Error occured when sending a message."})
             console.log(`Error: ${error}`)
             res.status(400).json({msg: "Sorry! Error occured when sending a message."})
         } else {
-            // res.status(200).json({msg: "Thank you! Your message is sent successfully."});
             console.log("Message is sent successfully")
             res.status(200).json({msg: "Thank you! Your message is sent successfully."});
         }
@@ -45,4 +44,6 @@ app.post("/", (req, res) => {
 })
 
 // Listen to server
-app.listen(PORT, () => console.log(`Server initiated on port ${PORT}.`));
+app.listen(PORT, () => {
+    console.log(`Server initiated on port ${PORT}.`)
+});
