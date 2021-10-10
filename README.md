@@ -20,7 +20,7 @@ I would personally like to take my time to give credit to relevant authors/sites
 <br><br>
 
 ## **Directory**
-Use this link: **[Personal-Web-Portfolio](https://thuta-web-portfolio.herokuapp.com/)**, to access my hosted personal web portfolio.
+Use this link: **[Personal-Web-Portfolio](https://thutalin.herokuapp.com/)**, to access my hosted personal web portfolio.
 
 
 
