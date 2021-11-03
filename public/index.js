@@ -89,7 +89,6 @@ function callObserver() {
     }, options);
 
     sections.forEach(section => {
-        console.log("Testing")
         observer.observe(section);
     });
 }
@@ -220,14 +219,14 @@ async function submitMsg() {
     })
     .then(response => { return response.json() })
     .then(response => {
-        console.log("Second Response", response)
         const toast = document.getElementById("toast")
-        if(response === "Thank you! Your message is sent successfully.") {   
+        if(response) {   
             toast.style.backgroundColor = "#03c04a"
+            toast.innerText = "Thank you! Your message is sent successfully."
         } else {
             toast.style.backgroundColor = "red"
+            toast.innerText = "Server Error: Message Failed."
         }
-        toast.innerText = response
         toast.style.animation = "fadeInOut ease-in-out 5s forwards";
         setTimeout(() => {
             toast.innerText = ""
@@ -236,10 +235,9 @@ async function submitMsg() {
         submitBtn.disabled = false;
     })
     .catch(error => {
-        console.log("Promise Error")
         const toast = document.getElementById("toast")
         toast.style.backgroundColor = "red"
-        toast.innerText = error
+        toast.innerText = `Client Error: Message Failed with ${error}.`
         toast.style.animation = "fadeInOut ease-in-out 5s forwards";
         setTimeout(() => {
             toast.innerText = ""

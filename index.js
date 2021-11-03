@@ -17,16 +17,19 @@ app.use(express.json())
 app.post("/", (req, res) => {
       
     try {
+
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: process.env.HOST,
+            port: 587,
+            secure: false,
             auth: {
                 user: process.env.EMAIL,
-                pass: process.env.PASSWORD
-            }
+                pass: process.env.PASSWORD,
+            },
         });
           
         let mailOptions = {
-            from: `Message from ${req.body.email} <${req.body.email}>`,
+            from: req.body.email,
             to: process.env.EMAIL,
             subject: req.body.subject,
             text: req.body.message
@@ -34,9 +37,9 @@ app.post("/", (req, res) => {
           
         transporter.sendMail(mailOptions, (error) => {
             if (error) {
-                res.status(500).json("Message Failed!")
+                res.status(500).json(false)
             } else {
-                res.status(200).json("Thank you! Your message is sent successfully.");
+                res.status(200).json(true);
             }
         });
 
