@@ -218,16 +218,10 @@ async function submitMsg() {
             'message': msgNode.value 
         })
     })
-    .then(response => {
-        if(response.status === 200) {   
-            return response.json()
-        } else {
-            return `Server Error: ${response.json()}`
-        }
-    })
+    .then(response => { return response.json() })
     .then(response => {
         const toast = document.getElementById("toast")
-        if(response !== "Message Failed!") {   
+        if(response === "Thank you! Your message is sent successfully.") {   
             toast.style.backgroundColor = "#03c04a"
         } else {
             toast.style.backgroundColor = "red"
@@ -243,7 +237,7 @@ async function submitMsg() {
     .catch(error => {
         const toast = document.getElementById("toast")
         toast.style.backgroundColor = "red"
-        toast.innerText = `Client (Promise) Error: ${error}`
+        toast.innerText = error
         toast.style.animation = "fadeInOut ease-in-out 5s forwards";
         setTimeout(() => {
             toast.innerText = ""
