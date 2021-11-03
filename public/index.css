@@ -168,8 +168,8 @@ a {
 	margin: 0 2%;
 	opacity: 0;
 	padding: 5px;
-	position: -webkit-sticky; /** Safari **/
 	position: sticky;
+	position: -webkit-sticky; /** Safari **/
 	top: 100px;
 	z-index: 3;
 }
