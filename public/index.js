@@ -9,6 +9,7 @@
     const closeMenu = document.querySelector('#nav-close')
     const menuSection = document.querySelector('#navigation')
     const mainSection = document.querySelector('#main-content')
+    const toast = document.getElementById('toast')
 
     paraBool ? openMenu.style.animation = "fadeOut 1s" : closeMenu.style.animation = "fadeOut 1s"
     paraBool ? closeMenu.style.animation = "fadeIn 1s" : openMenu.style.animation = "fadeIn 1s" 
@@ -18,6 +19,8 @@
 
     menuSection.style.animation = paraBool ? "fadeIn 0.5s forwards" : "fadeOut 0.5s forwards"
     mainSection.style.display = paraBool ? 'none' : 'block'
+
+    toast.style.display = paraBool ? "none" : "inline-block"
 }
 
 
@@ -29,6 +32,7 @@ const onNavigate = () => {
     const closeMenu = document.querySelector('#nav-close')
     const menuSection = document.querySelector('#navigation')
     const mainSection = document.querySelector('#main-content')
+    const toast = document.getElementById('toast')
 
     openMenu.style.animation = "fadeIn 1s"
     closeMenu.style.animation = "fadeOut 1s"
@@ -36,6 +40,7 @@ const onNavigate = () => {
     closeMenu.style.display = 'none'
     menuSection.style.animation = "fadeOut 0.5s forwards"
     mainSection.style.display = 'block'
+    toast.style.display = "inline-block"
 }
 
 
