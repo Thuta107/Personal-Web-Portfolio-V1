@@ -220,27 +220,29 @@ async function submitMsg() {
     .then(response => { return response.json() })
     .then(response => {
         const toast = document.getElementById("toast")
+        const toastMsg = document.getElementById("toast-message")
         if(response) {   
-            toast.style.backgroundColor = "#03c04a"
-            toast.innerText = "Thank you! Your message is sent successfully."
+            toastMsg.style.backgroundColor = "#03c04a"
+            toastMsg.innerText = "Thank you! Your message is sent successfully."
         } else {
-            toast.style.backgroundColor = "red"
-            toast.innerText = "Server Error: Message Failed."
+            toastMsg.style.backgroundColor = "red"
+            toastMsg.innerText = "Server Error: Message Failed."
         }
         toast.style.animation = "fadeInOut ease-in-out 5s forwards";
         setTimeout(() => {
-            toast.innerText = ""
+            toastMsg.innerText = ""
             toast.style.animation = "none"
         }, 10000)
         submitBtn.disabled = false;
     })
     .catch(error => {
         const toast = document.getElementById("toast")
-        toast.style.backgroundColor = "red"
-        toast.innerText = `Client Error: Message Failed with ${error}.`
+        const toastMsg = document.getElementById("toast-message")
+        toastMsg.style.backgroundColor = "red"
+        toastMsg.innerText = `Client Error: Message Failed with ${error}.`
         toast.style.animation = "fadeInOut ease-in-out 5s forwards";
         setTimeout(() => {
-            toast.innerText = ""
+            toastMsg.innerText = ""
             toast.style.animation = "none"
         }, 10000)
         submitBtn.disabled = false;
