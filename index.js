@@ -15,32 +15,36 @@ app.use(express.json())
 
 // Contact Form Submission
 app.post("/", (req, res) => {
-    console.log(req.body);
+      
+    try {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.PASSWORD
+            }
+        });
+          
+        let mailOptions = {
+            from: `Message from ${req.body.email} <${req.body.email}>`,
+            to: process.env.EMAIL,
+            subject: req.body.subject,
+            text: req.body.message
+        };
+          
+        transporter.sendMail(mailOptions, (error) => {
+            if (error) {
+                console.log(`Error: ${error}`)
+                res.status(400).json(error)
+            } else {
+                console.log("Message is sent successfully")
+                res.status(200).json("Thank you! Your message is sent successfully.");
+            }
+        });
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
-        }
-    });
-      
-    let mailOptions = {
-        from: `${req.body.fullname} from ${req.body.email} <${req.body.email}>`,
-        to: process.env.EMAIL,
-        subject: req.body.subject,
-        text: req.body.message
-    };
-      
-    transporter.sendMail(mailOptions, (error) => {
-        if (error) {
-            console.log(`Error: ${error}`)
-            res.status(400).json({msg: error.toString()})
-        } else {
-            console.log("Message is sent successfully")
-            res.status(200).json({msg: "Thank you! Your message is sent successfully."});
-        }
-    });
+    } catch(e) {
+        console.log(e)
+    }
 })
 
 // Listen to server

@@ -12,261 +12,391 @@
 
 <body>
 
-    <!-- Nav Section -->
-    <div id="nav-container" class="head-font">
-        <div> <a href="#hero-container"> Home </a> </div>
-        <div> <a href="#about"> About </a> </div>
-        <div> <a href="#portfolio"> Portfolio </a> </div>
-        <div> <a href="#contact"> Contact </a> </div>
-    </div>
-
-    <!-- Social Section -->
-    <div id="social-container">
-        <div>
-            <a class="head-font" href="https://www.linkedin.com/in/thuta-lin/" target="_blank"> 
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-        </div>
-        <div>
-            <a class="head-font" href="https://github.com/Thuta107" target="_blank"> 
-                <i class="fa fa-github" aria-hidden="true"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Social + Nav Section (for mobile and smaller screen size) -->
-    <span id="burger" onclick="menuOn(true)"> 
-        <i class="fas fa-bars"></i> 
-    </span>
-    <span id="burger-x" onclick="menuOn(false)"> 
-        <i class="fas fa-times"></i>
-    </span>
-    <div id="nav-socials" class="head-font">
-        <div class="nav-socials-items"> <a href="#hero-container" onclick="menuOn(false)"> Home </a> </div>
-        <div class="nav-socials-items"> <a href="#about" onclick="menuOn(false)"> About </a> </div>
-        <div class="nav-socials-items"> <a href="#portfolio" onclick="menuOn(false)"> Portfolio </a> </div>
-        <div class="nav-socials-items"> <a href="#contact" onclick="menuOn(false)"> Contact </a> </div>
-        <div class="nav-socials-s">
+    <!-- Nav Bar -->
+    <nav id="nav-bar">
+        <div class="nav-grid">
+            <div id="logo"> <img src="img/Thuta.png" alt="Thuta Logo"/> </div>
             <div>
-                <a class="head-font" href="https://www.linkedin.com/in/thuta-lin/" target="_blank"> 
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div>
-                <a class="head-font" href="https://github.com/Thuta107" target="_blank"> 
-                    <i class="fa fa-github" aria-hidden="true"></i>
-                </a>
+                <div id="nav-open" onclick="onMenu(true)"> <i class="fas fa-bars" ></i> </div>
+                <div id="nav-close" onclick="onMenu(false)"> <i class="fas fa-times"></i> </div>
             </div>
         </div>
+    </nav>
+
+
+    <!-- Toast -->
+    <span id="toast"></span>
+
+
+    <!-- Navigation Section -->
+    <div id="navigation">
+        <div onclick="onNavigate()"> <a href="#landing"> Home </a> </div>
+        <div onclick="onNavigate()"> <a href="#about"> About </a> </div>
+        <div onclick="onNavigate()"> <a href="#skill"> Skill </a> </div>
+        <div onclick="onNavigate()"> <a href="#portfolio"> Portfolio </a> </div>
+        <div onclick="onNavigate()"> <a href="#contact"> Contact </a> </div>
     </div>
 
-    <!-- Main Section -->
-    <div id="main-container" class="text-font">
 
-        <!-- Toast -->
-        <div id="toast"></div>
-
-        <!-- Hero Section -->
-        <section id="hero-container">
-            <div class="hero-intro"> 
-                <span> Hello&#128400;! I'm</span>
-                <span class="hero-highlight head-font">Thuta.</span>
-                <span></span>
+    <div id="main-content">
+        
+        <!-- Landing Page -->
+        <section id="landing">
+            <div class="landing-header"> Hello&#128400;! I'm <span class="highlight">Thuta</span>. </div>
+            <div class="landing-hero"> Building Software Products for your Business Needs. </div>
+            <div class="landing-paragraph"> 
+                A <span class="highlight">Software Developer</span> with passion 
+                for developing and designing various system and application with experience in 
+                <span class="highlight">Web & Hybrid Mobile</span> development.
             </div>
-            <div class="hero-main"> Building Software Products for your Business Needs. </div>
-            <div class="hero-section"> 
-                <p style="line-height: 2;"> 
-                    <span class="hero-highlight head-font"> Passionate & Innovative Software Developer </span> 
-                    specialising in developing (mostly) and designing various applications and systems. I have experience 
-                    with <span class="hero-highlight head-font"> Web & Mobile Apps Development.</span> 
-                </p> 
+            <div class="landing-grid"> 
+                <div>
+                    <a class="landing-btn" href="#portfolio"> <i class="fas fa-folder-open"></i> </a> 
+                    <div class="landing-btn-text"> View Portfolio </div>
+                </div>
+                <div>
+                    <a class="landing-btn" href="#contact"> <i class="far fa-envelope"></i> </a> 
+                    <div class="landing-btn-text"> Contact Me </div>
+                </div>
             </div>
-            <div class="btn-group">
-                <a href="#portfolio"> View My Work </a>
-                <a href="#contact"> Contact Me </a>
+        </section>
+    
+        <!-- About Page -->
+        <section id="about">
+            <div class="header"> Wh&#129300; Am I ? </div>
+            <div>
+                Hello! My name is 
+                <span class="text-highlight">Thuta Lin</span> 
+                and creating and building things has always been my passion. In 2016, I discovered 
+                programmin as part of my Engineering Foundation Studies at 
+                <span class="text-highlight">Curtive University Malaysia</span>. 
+                With the new-found love for programming, I decided to pursue 
+                <span class="text-highlight">Software Engineering Program</span> at 
+                <span class="text-highlight">Monash University Malaysia </span> in 2017 of July.
+                <br><br>
+                Throughout the program, I was given the opportunity to learn various:
+                <ul>
+                    <li><span class="text-highlight">Programming Concepts & Paradigms</span></li>
+                    <li><span class="text-highlight">Data Structures & Algorithms</span></li>
+                    <li><span class="text-highlight">Software Development & Project Management</span></li>
+                    <li><span class="text-highlight">Quality Assurance (QA) & Testing</span></li>
+                    <li><span class="text-highlight">Data Science & AI</span></li>
+                </ul><br>
+                In addition, the university environment gives me a chance to improve and hone on my soft skills:
+                <span class="text-highlight">Communication</span>, 
+                <span class="text-highlight">Leadership</span>, 
+                <span class="text-highlight">Conflict Resolution </span> &  
+                <span class="text-highlight">Team Work</span>.
+                <br><br>
+                After four-year of studies, I finally graduated in 2021 and looking forward to make a career as 
+                a successful <span class="text-highlight">Software Engineer</span>. Feel free to check out my 
+                resume (below) & portfolio to get to know me better. Please do keep in touch if you are looking to hire 
+                or if you just want a quick chat.
+            </div>
+            <div class="about-grid"> 
+                <div>
+                    <div class="about-btn" onclick="downloadCV()"> <i class="fas fa-download"></i> </div> 
+                    <div class="about-btn-text"> Download CV </div>
+                </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section-container"> 
-            <div class="head-font myheader"> Wh&#129300;  Am I ? </div>
-            <div class="about-grid">
-                <div>
-                    <p class="about-bio">
-                        Hello! My name is <span class="hero-highlight head-font"> Thuta Lin. </span>
+        <!-- Work Experience Page -->
+        <section id="work">
+            <div class="header"> Work Experience </div>
+            <div class="work-timeline">
+                <div class="work-grid">
+                    
+                    <!-- Start Date -->
+                    <div></div>
+                    <div class="work-date"> 2019 </div>
+                    
+                    <!-- Events -->
+                    <div class="work-info"> 
+                        <div class="work-info-header"> Software Engineer Intern - Juris Technologies </div> 
+                        <div class="work-info-time"> 2019 Mar - 2020 Mar </div> 
+                        <div>
+                            My passion has always been creating and building things, not necessarily restricted
+                            to software development and programming. I discovered basic programming back in 2016 
+                            while I was studying overseas for my foundation studies with the aim of pursuing in 
+                            different engineering discipline. With the new-found love for programming, I made a 
+                            decision to pursue Software Engineering Undergraduate Program which I started in 2017. 
+                        </div>  
+                    </div>
+                    <div class="work-event"></div>
+                
+                    <div class="work-info"> 
+                        <div class="work-info-header"> Research Assistant - Monash University Malaysia </div> 
+                        <div class="work-info-time"> 2019 Mar - 2020 Mar </div> 
+                        <div>
+                            My passion has always been creating and building things, not necessarily restricted
+                            to software development and programming. I discovered basic programming back in 2016 
+                            while I was studying overseas for my foundation studies with the aim of pursuing in 
+                            different engineering discipline. With the new-found love for programming, I made a 
+                            decision to pursue Software Engineering Undergraduate Program which I started in 2017. 
+                        </div>  
+                    </div>
+                    <div class="work-event"></div>
+
+                    <!-- End Date -->
+                    <div></div>
+                    <div id="curr-year" class="work-date"></div>
+                </div>
+            </div>
+            <div id="curr-year" class="work-date"></div> 
+        </section>
+
+        <!-- Skill Page -->
+        <div id="skill">
+            <div class="header"> Skills & Tools </div>
+            <div class="skill-grid">
+                <section>
+                    <div class="skill-header"> Frontend </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/html.png"/> 
+                            <div class="skill-desc"> HTML </div>
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/css.png"/> 
+                            <div class="skill-desc"> CSS </div>
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/react.png"/>
+                            <div class="skill-desc"> React </div>
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/javascript.png"/>
+                            <div class="skill-desc"> JavaScript </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="skill-header"> Backend </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/java.png"/> 
+                            <div class="skill-desc"> Java </div>
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/python.png"/>
+                            <div class="skill-desc"> Python </div>
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/nodejs.png"/>
+                            <div class="skill-desc"> NodeJS </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="skill-header"> CI/CD </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/git.png"/>
+                            <div class="skill-desc"> Git </div> 
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/gitlab.png"/>
+                            <div class="skill-desc"> GitLab </div> 
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/github.png"/>
+                            <div class="skill-desc"> GitHub </div> 
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="skill-header"> Database </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/mongo.png"/>
+                            <div class="skill-desc"> MongoDB </div> 
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/oracle.png"/>
+                            <div class="skill-desc"> Oracle </div> 
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="skill-header"> Mobile </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/react.png"/>
+                            <div class="skill-desc"> React Native </div> 
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="skill-header"> Cloud </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/heroku.png"/>
+                            <div class="skill-desc"> Heroku </div> 
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/aws.png"/>
+                            <div class="skill-desc"> AWS </div> 
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="skill-header"> Others </div>
+                    <div class="skill-icons">
+                        <div> 
+                            <img class="skill-img" src="img/trello.png"/>
+                            <div class="skill-desc"> Trello </div> 
+                        </div>
+                        <div> 
+                            <img class="skill-img" src="img/figma.png"/>
+                            <div class="skill-desc"> Figma </div> 
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div id="portfolio">
+            <div class="header"> Featured Porjects </div>
+            <div class="project-grid">
+                <section class="project">
+                    <div class="project-img"> 
+                        <img width="100%" height="100%" src="img/Nature.jpg"/> 
+                    </div>
+                    <div class="header"> Hello World </div>
+                    <div>
                         My passion has always been creating and building things, not necessarily restricted
                         to software development and programming. I discovered basic programming back in 2016 
                         while I was studying overseas for my foundation studies with the aim of pursuing in 
                         different engineering discipline. With the new-found love for programming, I made a 
-                        decision to pursue Software Engineering Undergraduate Program which I started in 2017. 
-                        <br><br>
-                        Fast-forward after 4 years of studies, I graduated a program and looking forward to 
-                        kick start my professional developer journey to help out and bring about a change to 
-                        various people and communities with the skill set that I have acquired. 
-                        <br><br>
-                        Check out my resume as well as my portfolio to know me better. Please do keep in touch
-                        if there is anything that I can help you out with.
-                    </p>
-                    <div id="resume" onclick="downloadCV()">
-                        <i class="fas fa-download"></i> DOWNLOAD RESUME
+                        decision to pursue Software Engineering Undergraduate Program which I started in 2017.
                     </div>
-                    <p class="about-bio-bottom">
-                        Check out my favourite <span class="hero-highlight head-font">Skills & Tools</span> 
-                        <span class="head-font emo-animation"> &#128071; </span> to know me better.
-                    </p>
-                </div>
-                <div class="img-bio">
-                    <img style="width: 100%; height: 100%;" src="img/About.jpg">
-                </div>
-            </div>
-
-            <!-- Langeuage -->
-            <section style="margin-top: 15%;">
-                <div class="tools-header"> Languages & Frameworks </div>
-                <div class="items">
-                    <div class="item-exp"> HTML5 </div>
-                    <div class="item-exp"> CSS3 </div>
-                    <div class="item-exp"> JavaScript </div>
-                    <div class="item-exp"> Python </div>
-                    <div class="item-exp"> React </div>
-                    <div class="item-exp"> SQL </div>
-                    <div class="item-ok"> Node.js </div>
-                    <div class="item-ok"> Java </div>
-                    <div class="item-ok"> React Native </div>
-                    <div class="item-ok"> Express.js </div>
-                    <!-- <div class="item-train"> Django </div> -->
-                </div>
-                <div class="legends"> 
-                    <span class="exp"> I'm pretty good with it </span>
-                    <span class="ok"> I've experience with it </span>
-                    <!-- <span class="train"> I'm still learning it </span> -->
-                </div>
-            </section>
-
-            <!-- Tools -->
-            <section style="margin-top: 10%;">
-                <div class="tools-header"> Tools & Platforms </div>
-                <div class="items">
-                    <div class="item-exp"> OracleDB </div>
-                    <div class="item-exp"> MongoDB </div>
-                    <div class="item-exp"> Git (GitHub) </div>
-                    <div class="item-exp"> VSCode </div>
-                    <div class="item-ok"> Trello </div>
-                    <div class="item-ok"> AWS </div>
-                    <!-- <div class="item-train"> Firebase </div>
-                    <div class="item-train"> Figma </div> -->
-                </div>
-                <div class="legends">
-                    <span class="exp"> I'm pretty good with it </span>
-                    <span class="ok"> I've experience with it </span>
-                    <!-- <span class="train"> I'm still learning it </span> -->
-                </div>
-            </section>
-        </section>
-
-         <!-- Portfolio -->
-        <div id="portfolio" class="section-container"> 
-            <div class="head-font myheader"> My Portfolio </div>
-            <div class="proj-grid">
-                <div class="proj-main">
-                    <div class="head-font proj-header"> Project One </div>
-                    <div class="proj-desc"> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </div>
-                    <div class="proj-lang">
-                        <div> Android </div>
+                    <div class="project-tech">
                         <div> Java </div>
-                        <div> Kotlin </div>
-                    </div>
-                    <div class="proj-link">
-                        <a class="head-font link" href="#"> 
-                            <i class="fa fa-github" aria-hidden="true"></i>
-                            <div class="link-text"> GitHub </div>
-                        </a>
-                        <a class="head-font link" href="#"> 
-                            <i class="fas fa-globe-asia"></i>
-                            <div class="link-text"> Website </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="proj-img">
-                    <img style="width: 100%; height: 100%;" src="img/Nature.jpg">
-                </div>
-            </div>
-
-            <div class="proj-grid">
-                <div class="proj-main">
-                    <div class="head-font proj-header"> Project One </div>
-                    <div class="proj-desc"> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </div>
-                    <div class="proj-lang">
-                        <div> Android </div>
                         <div> Java </div>
-                        <div> Kotlin </div>
+                        <div> Java </div>
                     </div>
-                    <div class="proj-link">
-                        <a class="head-font link" href="#"> 
-                            <i class="fa fa-github" aria-hidden="true"></i>
-                            <div class="link-text"> GitHub </div>
-                        </a>
-                        <a class="head-font link" href="#"> 
-                            <i class="fas fa-globe-asia"></i>
-                            <div class="link-text"> Website </div>
-                        </a>
+                    <div class="project-link"> 
+                        <div>
+                            <a class="project-link-btn" href="#portfolio"> <i class="fab fa-github"></i> </a> 
+                            <div class="project-link-text"> View GitHub </div>
+                        </div>
+                        <div>
+                            <a class="project-link-btn" href="#portfolio"> <i class="fas fa-globe-asia"></i> </a> 
+                            <div class="landing-btn-text"> View Website </div>
+                        </div>
                     </div>
-                </div>
-                <div class="proj-img"> 
-                    <img style="width: 100%; height: 100%;" src="img/Nature.jpg">
-                </div>
+                </section>
+                <section class="project">
+                    <div class="project-img"> 
+                        <img width="100%" height="100%" src="img/Nature.jpg"/> 
+                    </div>
+                    <div class="header"> Hello World </div>
+                    <div>
+                        My passion has always been creating and building things, not necessarily restricted
+                        to software development and programming. I discovered basic programming back in 2016 
+                        while I was studying overseas for my foundation studies with the aim of pursuing in 
+                        different engineering discipline. With the new-found love for programming, I made a 
+                        decision to pursue Software Engineering Undergraduate Program which I started in 2017.
+                    </div>
+                    <div class="project-tech">
+                        <div> Java </div>
+                        <div> Java </div>
+                        <div> Java </div>
+                    </div>
+                    <div class="project-link"> 
+                        <div>
+                            <a class="project-link-btn" href="#portfolio"> <i class="fab fa-github"></i> </a> 
+                            <div class="project-link-text"> View GitHub </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="project">
+                    <div class="project-img"> 
+                        <img width="100%" height="100%" src="img/Nature.jpg"/> 
+                    </div>
+                    <div class="header"> Hello World </div>
+                    <div>
+                        My passion has always been creating and building things, not necessarily restricted
+                        to software development and programming. I discovered basic programming back in 2016 
+                        while I was studying overseas for my foundation studies with the aim of pursuing in 
+                        different engineering discipline. With the new-found love for programming, I made a 
+                        decision to pursue Software Engineering Undergraduate Program which I started in 2017.
+                    </div>
+                    <div class="project-tech">
+                        <div> Java </div>
+                        <div> Java </div>
+                        <div> Java </div>
+                    </div>
+                    <div class="project-link"> 
+                        <div>
+                            <a class="project-link-btn" href="#portfolio"> <i class="fab fa-github"></i> </a> 
+                            <div class="project-link-text"> View GitHub </div>
+                        </div>
+                        <div>
+                            <a class="project-link-btn" href="#portfolio"> <i class="fas fa-globe-asia"></i> </a> 
+                            <div class="landing-btn-text"> View Website </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <!-- <div class="mproj-container"> 
-                Want to see more? Check out my 
-                <span class="more-proj head-font hero-highlight"> Full Portfolio </span> 
-            </div> -->
         </div>
 
-        <section id="contact" class="section-container">
-            <div class="head-font myheader"> Contact Me </div>
-            <!-- <form id="contact-form" action="/" method="POST" onsubmit="submitMsg()"> -->
-            <form id="contact-form">
-                <div id="contact-id" style="display: flex;">
-                    <div class="contact-container">
-                        <label for="fullname">* Name:</label><br>
-                        <input id="fullname" name="fullname" class="form-input text-font" type="text" required>
-                        <span id="err-name"> Error </span>
+        <!-- Contact Page -->
+        <section id="contact">
+            <div class="contact-flex">
+                <form id="contact-form">
+                    <div class="header"> Contact Form </div>
+                    <div>
+                        <div class="contact-label">
+                            <label id="email-label" for="email"> Email </label>
+                            <div>
+                                <i id="email-tick" class="fas fa-check-circle"></i>
+                                <i id="email-cross" class="fas fa-times-circle"></i>
+                            </div>
+                        </div>
+                        <input id="email" name="email" type="email" required>
+                        <span id="email-error"></span>
                     </div>
-                    <div class="contact-container">
-                        <label for="email"> * Email:</label><br>
-                        <input id="email" name="email" class="form-input text-font" type="email" required>
-                        <span id="err-email"> Error </span>
+                    <div>
+                        <div class="contact-label">
+                            <label id="subject-label" for="subject"> Subject </label>
+                            <div>
+                                <i id="subject-tick" class="fas fa-check-circle"></i>
+                                <i id="subject-cross" class="fas fa-times-circle"></i>
+                            </div>
+                        </div>
+                        <input id="subject" name="subject" type="text" required>
+                        <span id="subject-error"></span>
+                    </div>
+                    <div>
+                        <div class="contact-label">
+                            <label id="message-label" for="message"> Message </label>
+                            <div>
+                                <i id="message-tick" class="fas fa-check-circle"></i>
+                                <i id="message-cross" class="fas fa-times-circle"></i>
+                            </div>
+                        </div>
+                        <textarea id="message" name="message" type="text" rows="6" required></textarea><br>
+                        <span id="message-error"></span> 
+                    </div>
+                    <div> <input id="submit" type="button" value="Send Message" onclick="submitMsg()"> </div>
+                </form>
+                <div id="socials">
+                    <div id="socials-greet"> Congraulations🎉 & thank you for reaching to the end ... </div>
+                    <div id="socials-status"> I am currently </div>
+                    <div> 
+                        If you have anything, please reach out via the <span class="highlight"> Contact Form </span> or 
+                        <span class="highlight"> Social Media </span> of your choice below.
+                    </div>
+                    <div id="socials-link"> 
+                        <a id="github" href="https://github.com/Thuta107" target="_blank"> <i class="fab fa-github"></i> </a>
+                        <a href="https://www.linkedin.com/in/thuta-lin/" target="_blank"> <i class="fab fa-linkedin"></i> </a>
                     </div>
                 </div>
-                <div class="contact-container">
-                    <label for="subject">* Subject:</label><br>
-                    <input id="subject" name="subject" class="form-input text-font" type="text" required>
-                    <span id="err-subj"> Error </span>
-                </div>
-                <div class="contact-container">
-                    <label for="message">* Message:</label><br>
-                    <textarea id="message" name="message" class="form-input text-font" type="text" rows="8" required></textarea><br>
-                    <span id="err-msg"> Error </span>
-                </div>
-                <div class="contact-container">
-                    <input class="form-input" type="button" value="Send Message" onclick="submitMsg()">
-                </div>
-            </form>
-
+            </div>
         </section>
-
     </div>
 </body>
 

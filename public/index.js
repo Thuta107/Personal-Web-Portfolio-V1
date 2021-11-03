@@ -1,47 +1,85 @@
-/** 
- * Resize properly when the hamburger navigation is on
+// Navigation
+
+/**
+ * Function for controlling Menu Bar
+ * @param {boolean} paraBool - true if not opened, false otherwise
  */
-window.addEventListener("resize", () => {
-    let value = window.innerWidth;
-    let burger = document.getElementById("burger");
-    let burger_x = document.getElementById("burger-x");
-    let nav = document.getElementById("nav-socials");
-    let main = document.getElementById("main-container");
+ const onMenu = paraBool => {
+    const openMenu = document.querySelector('#nav-open')
+    const closeMenu = document.querySelector('#nav-close')
+    const menuSection = document.querySelector('#navigation')
+    const mainSection = document.querySelector('#main-content')
 
-    if(value > 900) {
-        burger.style.display = "none";
-        burger_x.style.display = "none";
-        nav.style.display = "none";
-        main.style.display = "block"
-    } else {
-        burger.style.display = "inline";
-    }
-});
+    paraBool ? openMenu.style.animation = "fadeOut 1s" : closeMenu.style.animation = "fadeOut 1s"
+    paraBool ? closeMenu.style.animation = "fadeIn 1s" : openMenu.style.animation = "fadeIn 1s" 
+    
+    openMenu.style.display = paraBool ? 'none' : 'block'
+    closeMenu.style.display = paraBool ? 'block' : 'none'
+
+    menuSection.style.animation = paraBool ? "fadeIn 0.5s forwards" : "fadeOut 0.5s forwards"
+    mainSection.style.display = paraBool ? 'none' : 'block'
+}
 
 
-/** Intersection Observer Realated **/
-window.addEventListener("load", () => {
-    callObserver();
-    focus();
-});
+/**
+ * Function for handling navigation links
+ */
+const onNavigate = () => {
+    const openMenu = document.querySelector('#nav-open')
+    const closeMenu = document.querySelector('#nav-close')
+    const menuSection = document.querySelector('#navigation')
+    const mainSection = document.querySelector('#main-content')
+
+    openMenu.style.animation = "fadeIn 1s"
+    closeMenu.style.animation = "fadeOut 1s"
+    openMenu.style.display = 'block'
+    closeMenu.style.display = 'none'
+    menuSection.style.animation = "fadeOut 0.5s forwards"
+    mainSection.style.display = 'block'
+}
+
+
+// About
+
+/**
+ * Function for downloading Image
+ */
+async function downloadCV() {
+    window.open(
+        window.location.origin + '/resume.pdf',
+        '_blank' // Open a new window or tab
+    );
+}
+
+/**
+ * Function for showing the current year
+ */
+function showCurrent(element) {
+    const currYear = document.querySelector(`#${element}`)
+    currYear.innerText = new Date().getFullYear().toString()
+    currYear.style.font
+}
+
+
+// Intersection Observer
 
 function callObserver() {
+    
     let sections = document.querySelectorAll("section");
 
     let options = {
         root: null,
-        threshold: 0.3,
+        threshold: 0.1,
         rootMargin: "0px"
     };
   
     let observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => { 
             if(!entry.isIntersecting) {
+                entry.target.style.animation = "fadeOut 1.5s ease-in-out forwards";
                 return;
             }
-
-            entry.target.style.animation = "myFadeIn 1s ease-in-out forwards";
-            observer.unobserve(entry.target);
+            entry.target.style.animation = "fadeIn 1.5s ease-in-out forwards";
         });
     }, options);
 
@@ -53,108 +91,115 @@ function callObserver() {
 
 
 /**
- * Open/Close the Hamburger Menu
- * @param {Boolean} bool - true for burger (open) else false.
+ * Add Focus listeners for all the input
  */
-function menuOn(bool) {
-    let burger = document.getElementById("burger");
-    let burger_x = document.getElementById("burger-x");
-    let nav = document.getElementById("nav-socials");
-    let main = document.getElementById("main-container");
+function addListeners() {
     
-    if (bool) {
-        burger.style.display = "none";
-        burger_x.style.display = "inline";
-        nav.style.display = "flex";
-        main.style.display = "none"
-    } else {
-        burger.style.display = "inline";
-        burger_x.style.display = "none";
-        nav.style.display = "none";
-        main.style.display = "block";
-    }
-}
+    const emailNode = document.getElementById('email');
+    const subjNode = document.getElementById('subject');
+    const msgNode = document.getElementById('message');
 
+    emailNode.addEventListener('focus', () => {
+        const label = document.getElementById('email-label')
+        const successIcon = document.getElementById('email-tick')
+        const errorIcon = document.getElementById('email-cross')
+        const errorMsg = document.getElementById('email-error')
 
-/** 
- * Download my Resume or CV 
- */
-async function downloadCV() {
-    window.open(
-        window.location.origin + '/resume.pdf',
-        '_blank' // Open a new window or tab
-    );
+        label.style.color = "black"
+        successIcon.style.display = "none"
+        errorIcon.style.display = "none"
+        errorMsg.innerText = ""
+        emailNode.style.border = "2px solid var(--color-blue)"
+    });
+
+    emailNode.addEventListener('focusout', () => {
+        checkInputs(emailNode, "email")
+    });
+
+    subjNode.addEventListener('focus', () => {
+        const label = document.getElementById('subject-label')
+        const successIcon = document.getElementById('subject-tick')
+        const errorIcon = document.getElementById('subject-cross')
+        const errorMsg = document.getElementById('subject-error')
+
+        label.style.color = "black"
+        successIcon.style.display = "none"
+        errorIcon.style.display = "none"
+        errorMsg.innerText = ""
+        subjNode.style.border = "2px solid var(--color-blue)"
+    });
+
+    subjNode.addEventListener('focusout', () => {
+        checkInputs(subjNode, "subject")
+    });
+
+    msgNode.addEventListener('focus', () => {
+        const label = document.getElementById('message-label')
+        const successIcon = document.getElementById('message-tick')
+        const errorIcon = document.getElementById('message-cross')
+        const errorMsg = document.getElementById('message-error')
+
+        label.style.color = "black"
+        successIcon.style.display = "none"
+        errorIcon.style.display = "none"
+        errorMsg.innerText = ""
+        msgNode.style.border = "2px solid var(--color-blue)"
+    });
+
+    msgNode.addEventListener('focusout', () => {
+        checkInputs(msgNode, "message")
+    });
 }
 
 
 /**
- * Submit Form Data
+ * Check the input element for its validity 
+ * @param {Object} element - Input element to check for the validity
  */
-async function submitMsg() {
-    let name = document.getElementById('fullname');
-    let email = document.getElementById('email');
-    let subject = document.getElementById('subject');
-    let message = document.getElementById('message');
-    let toast = document.getElementById('toast');
-    toast.classList.remove('toast-animation')
+function checkInputs(element, identifier) {
 
+    const label = document.getElementById(`${identifier}-label`)
+    const success = document.getElementById(`${identifier}-tick`)
+    const error = document.getElementById(`${identifier}-cross`)
+    const errorMsg = document.getElementById(`${identifier}-error`)
 
-    // Check Name, Email, Subject and Message
-    if (!name.checkValidity() || !email.checkValidity() || !subject.checkValidity() || !message.checkValidity()) {
-        
-        let err;
+    if (!element.checkValidity()) {
 
-        if (!name.checkValidity()) {
-            name.style.borderBottom = "2px solid red";
-            name.style.animation = "myFadeIn 1s ease-in-out forwards";
+        label.style.color = "red"
+        element.style.border = "2px solid red"
+        success.style.display = "none"
+        error.style.display = "inline"
+        errorMsg.style.color = "red"
 
-            err = document.getElementById('err-name');
-            err.style.visibility = "visible";
-            err.style.animation = "myFadeIn 1s ease-in-out forwards";
-            err.innerText = "Name field is required";
+        if(identifier === 'email' && element.validity.typeMismatch) {
+            errorMsg.innerText = "Invalid Email Format";
+        } else {
+            errorMsg.innerText = "Field is required"
         }
-    
-        if (!email.checkValidity()) {
-            email.style.borderBottom = "2px solid red";
-            email.style.animation = "myFadeIn 1s ease-in-out forwards";
-
-            err = document.getElementById('err-email');
-            err.style.visibility = "visible";
-            err.style.animation = "myFadeIn 1s ease-in-out forwards";
-            if(email.validity.typeMismatch) {
-                err.innerText = "Email is not a valid email format";
-            } else {
-                err.innerText = "Email field is required";
-            }
-        }
-
-        if (!subject.checkValidity()) {
-            subject.style.borderBottom = "2px solid red";
-            subject.style.animation = "myFadeIn 1s ease-in-out forwards";
-
-            err = document.getElementById('err-subj');
-            err.style.visibility = "visible";
-            err.style.animation = "myFadeIn 1s ease-in-out forwards";
-            err.innerText = "Subject field is required";
-        }
-
-        if (!message.checkValidity()) {
-            message.style.borderBottom = "2px solid red";
-            message.style.animation = "myFadeIn 1s ease-in-out forwards";
-
-            err = document.getElementById('err-msg');
-            err.style.visibility = "visible";
-            err.style.animation = "myFadeIn 1s ease-in-out forwards";
-            err.innerText = "Message field is required";
-        }
-
-        return false;
+        return false
     }
 
-    console.log(name.value)
-    console.log(email.value)
-    console.log(subject.value)
-    console.log(message.value)
+    label.style.color = "#03c04a"
+    element.style.border = "2px solid #03c04a"
+    success.style.display = "inline"
+    error.style.display = "none"
+    errorMsg.innerText = ""
+    return true
+} 
+
+
+async function submitMsg() {
+    
+    const emailNode = document.getElementById('email');
+    const subjNode = document.getElementById('subject');
+    const msgNode = document.getElementById('message');
+
+    if (!(checkInputs(emailNode, "email") && checkInputs(subjNode, "subject") && checkInputs(msgNode, "message"))) {
+        return
+    }
+
+    const submitBtn = document.getElementById('submit');
+    submitBtn.disabled = true;
 
     fetch('/', {
         method: "post",
@@ -163,88 +208,77 @@ async function submitMsg() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'fullname': name.value,
-            'email': email.value, 
-            'subject': subject.value, 
-            'message': message.value 
+            'email': emailNode.value, 
+            'subject': subjNode.value, 
+            'message': msgNode.value 
         })
     })
-    .then(response => { 
-        if(response.status == 200 || response.status == 400) {
+    .then(response => {
+        if(response.status === 200) {   
             return response.json()
         } else {
-            return response.json()
+            return "Message Failed!"
         }
     })
     .then(response => {
-        console.log(response)
-        if(response.msg) {
-            toast.classList.add('toast-animation');
-            toast.innerText = response.msg;
+        const toast = document.getElementById("toast")
+        if(response !== "Message Failed!") {   
+            toast.style.backgroundColor = "#03c04a"
         } else {
-            toast.classList.add('toast-animation');
-            toast.innerText = 'Internal Server Error Occured'
+            toast.style.backgroundColor = "red"
         }
+        toast.innerText = response
+        toast.style.animation = "fadeInOut ease-in-out 5s forwards";
+        setTimeout(() => {
+            toast.innerText = ""
+            toast.style.animation = "none"
+        }, 10000)
+        submitBtn.disabled = false;
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        const toast = document.getElementById("toast")
+        toast.style.backgroundColor = "red"
+        toast.innerText = error ? error : "Message Failed!"
+        toast.style.animation = "fadeInOut ease-in-out 5s forwards";
+        setTimeout(() => {
+            toast.innerText = ""
+            toast.style.animation = "none"
+        }, 10000)
+        submitBtn.disabled = false;
+    })
     
-    form = document.getElementById('contact-form')
+    const form = document.getElementById('contact-form')
     form.reset();
-    return false;
+
+    emailNode.style.border = "2px solid black"
+    msgNode.style.border = "2px solid black"
+    subjNode.style.border = "2px solid black"
+
+    document.getElementById('email-label').style.color = "black"
+    document.getElementById('email-label').style.color = "black"
+    document.getElementById('email-label').style.color = "black"
+    
+    document.getElementById('email-tick').style.display = "none"
+    document.getElementById('email-cross').style.display = "none"
+    document.getElementById('subject-tick').style.display = "none"
+    document.getElementById('subject-cross').style.display = "none"
+    document.getElementById('message-tick').style.display = "none"
+    document.getElementById('message-cross').style.display = "none"
+
+    document.getElementById('email-error').innerText = ""
+    document.getElementById('subject-error').innerText = ""
+    document.getElementById('message-error').innerText = ""
+
+    document.getElementById('subject-label').style.color = "black"
+    document.getElementById('message-label').style.color = "black"
+    document.getElementById('email-label').style.color = "black"
 }
 
+// Call all functions on Load
 
-/**
- * Focus on the input
- */
-function focus() {
-    let name = document.getElementById('fullname');
-    let email = document.getElementById('email');
-    let subject = document.getElementById('subject');
-    let message = document.getElementById('message');
-    let err;
-
-    name.addEventListener('focus', () => {
-        name.style.border = "none";
-        name.style.borderBottom = "3px solid var(--color-blue)";
-        err = document.getElementById('err-name');
-        err.style.visibility = "hidden";
-    });
-
-    name.addEventListener('focusout', () => {
-        name.style.border = "none";
-    });
-
-    email.addEventListener('focus', () => {
-        email.style.border = "none";
-        email.style.borderBottom = "3px solid var(--color-blue)";
-        err = document.getElementById('err-email');
-        err.style.visibility = "hidden";
-    });
-
-    email.addEventListener('focusout', () => {
-        email.style.border = "none";
-    });
-
-    subject.addEventListener('focus', () => {
-        subject.style.border = "none";
-        subject.style.borderBottom = "3px solid var(--color-blue)";
-        err = document.getElementById('err-subj');
-        err.style.visibility = "hidden";
-    });
-
-    subject.addEventListener('focusout', () => {
-        subject.style.border = "none";
-    });
-
-    message.addEventListener('focus', () => {
-        message.style.border = "none";
-        message.style.borderBottom = "3px solid var(--color-blue)";
-        err = document.getElementById('err-msg');
-        err.style.visibility = "hidden";
-    });
-
-    message.addEventListener('focusout', () => {
-        message.style.border = "none";
-    });
-}
+/** Intersection Observer Realated **/
+window.addEventListener("load", () => {
+    callObserver();
+    addListeners();
+    showCurrent('curr-year');
+});
