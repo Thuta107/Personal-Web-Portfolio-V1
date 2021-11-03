@@ -218,8 +218,12 @@ async function submitMsg() {
             'message': msgNode.value 
         })
     })
-    .then(response => { return response.json() })
+    .then(response => { 
+        console.log("First Response", response)
+        return response.json() 
+    })
     .then(response => {
+        console.log("Second Response", response)
         const toast = document.getElementById("toast")
         if(response === "Thank you! Your message is sent successfully.") {   
             toast.style.backgroundColor = "#03c04a"
