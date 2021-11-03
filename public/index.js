@@ -218,10 +218,7 @@ async function submitMsg() {
             'message': msgNode.value 
         })
     })
-    .then(response => { 
-        console.log("First Response", response)
-        return response.json() 
-    })
+    .then(response => { return response.json() })
     .then(response => {
         console.log("Second Response", response)
         const toast = document.getElementById("toast")
@@ -239,6 +236,7 @@ async function submitMsg() {
         submitBtn.disabled = false;
     })
     .catch(error => {
+        console.log("Promise Error")
         const toast = document.getElementById("toast")
         toast.style.backgroundColor = "red"
         toast.innerText = error
