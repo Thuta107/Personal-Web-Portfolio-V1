@@ -20,7 +20,7 @@
     menuSection.style.animation = paraBool ? "fadeIn 0.5s forwards" : "fadeOut 0.5s forwards"
     mainSection.style.display = paraBool ? 'none' : 'block'
 
-    toast.style.display = paraBool ? "none" : "inline-block"
+    toast.style.display = paraBool ? "none" : "block"
 }
 
 
@@ -40,7 +40,7 @@ const onNavigate = () => {
     closeMenu.style.display = 'none'
     menuSection.style.animation = "fadeOut 0.5s forwards"
     mainSection.style.display = 'block'
-    toast.style.display = "inline-block"
+    toast.style.display = "block"
 }
 
 
