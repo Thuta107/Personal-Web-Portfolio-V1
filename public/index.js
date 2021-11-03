@@ -222,7 +222,7 @@ async function submitMsg() {
         if(response.status === 200) {   
             return response.json()
         } else {
-            return response.json() ? response.json() : "Message Failed (Server Error)!"
+            return `Server Error: ${response.json()}`
         }
     })
     .then(response => {
@@ -243,7 +243,7 @@ async function submitMsg() {
     .catch(error => {
         const toast = document.getElementById("toast")
         toast.style.backgroundColor = "red"
-        toast.innerText = error ? error : "Message Failed (with Promise)!"
+        toast.innerText = `Client (Promise) Error: ${error}`
         toast.style.animation = "fadeInOut ease-in-out 5s forwards";
         setTimeout(() => {
             toast.innerText = ""
